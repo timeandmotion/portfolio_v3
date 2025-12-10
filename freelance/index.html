@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJ510VYL0B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XJ510VYL0B');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <title>Freelance Client Guide - Kat Walker Design</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <meta property="og:image" content="../images/kat-workdesk.png">
+    <meta property="og:site_name" content="KatWalker.Design">
+    <meta property="og:url" content="https://katwalker.design">
+    <meta property="og:type" content="website">
+    <style>
+        /* Freelance page specific styles */
+        body {
+            background-color: var(--cream);
+            padding-top: 0;
+        }
+
+        .freelance-header {
+            background-color: var(--white);
+            padding: 16px 64px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .freelance-header .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .freelance-logo {
+            height: 132px;
+            width: auto;
+        }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background-color: var(--text-standard);
+            color: var(--white) !important;
+            border-radius: 30px;
+            font-family: "Urbanist", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1.92px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-main:hover {
+            background-color: var(--text-medium);
+            color: var(--white) !important;
+            text-decoration: none;
+        }
+
+        .freelance-hero {
+            background: var(--white);
+            padding: 120px 64px 80px;
+            text-align: center;
+        }
+
+        .freelance-hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .freelance-hero h1 {
+            font-family: "DM Serif Display", serif;
+            font-size: 70px;
+            font-weight: 400;
+            line-height: 80px;
+            color: var(--dark-forest-green);
+            margin-bottom: 24px;
+        }
+
+        .freelance-hero .subtitle {
+            font-family: "Lora", serif;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 34px;
+            letter-spacing: -0.4px;
+            color: var(--text-standard);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: start;
+            margin: 60px 0;
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 64px;
+        }
+
+        .toc-sidebar {
+            position: sticky;
+            top: 180px;
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--khaki);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .toc-title {
+            font-family: "Urbanist", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.28px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--khaki);
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 12px;
+        }
+
+        .toc-list a {
+            color: var(--text-standard);
+            text-decoration: none;
+            font-family: "Lora", serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: -0.4px;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 4px 0;
+        }
+
+        .toc-list a:hover {
+            color: var(--dusty-rose);
+            text-decoration: none;
+        }
+
+        .toc-list a.active {
+            color: var(--bright-berry);
+            font-weight: 500;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .toc-list a.active::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--bright-berry);
+            font-size: 12px;
+        }
+
+        .guide-content {
+            background-color: var(--white);
+            padding: 60px;
+            border-radius: 16px;
+            border: 1px solid var(--khaki);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .guide-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 180px;
+        }
+
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .guide-section h2 {
+            font-family: "DM Serif Display", serif;
+            font-size: 60px;
+            font-weight: 400;
+            line-height: 70px;
+            color: var(--dark-forest-green);
+            border-bottom: 2px solid var(--pink-rose);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .guide-section h2 + p em {
+            font-family: "Lora", serif;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 34px;
+            letter-spacing: -0.4px;
+            color: var(--text-medium);
+            font-style: italic;
+        }
+
+        .guide-section h3 {
+            font-family: "DM Serif Text", serif;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 44px;
+            color: var(--dusty-rose);
+            margin-top: 48px;
+            margin-bottom: 24px;
+        }
+
+        .guide-section p {
+            font-family: "Lora", serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: -0.4px;
+            color: var(--text-standard);
+            margin-bottom: 24px;
+        }
+
+        .guide-section ul {
+            list-style: disc;
+            padding-left: 24px;
+            margin: 24px 0;
+        }
+
+        .guide-section ul li {
+            font-family: "Lora", serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: -0.4px;
+            color: var(--text-standard);
+            margin-bottom: 8px;
+        }
+
+        .guide-section ul li::marker {
+            color: var(--dusty-rose);
+        }
+
+        .info-box {
+            background-color: var(--peach);
+            border-left: 4px solid var(--bright-berry);
+            padding: 32px;
+            margin: 32px 0;
+            border-radius: 12px;
+        }
+
+        .info-box h4 {
+            font-family: "DM Serif Text", serif;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 32px;
+            color: var(--dark-burgundy);
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .info-box p {
+            margin-bottom: 16px;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box a {
+            color: var(--bright-berry);
+            text-decoration: none;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        .section-return-top {
+            display: block;
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--khaki);
+        }
+
+        .section-return-top button {
+            background-color: transparent;
+            border: 1px solid var(--dusty-rose);
+            color: var(--dusty-rose);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: "Urbanist", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-return-top button:hover {
+            background-color: var(--dusty-rose);
+            color: var(--white);
+        }
+
+        .freelance-footer {
+            background-color: var(--cream);
+            padding: 60px 64px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .freelance-footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .freelance-footer a {
+            color: var(--bright-berry);
+            text-decoration: none;
+            font-family: "Lora", serif;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .freelance-footer a:hover {
+            color: var(--dark-burgundy);
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background-color: var(--bright-berry);
+            border-radius: 30px;
+            color: var(--white);
+            font-family: "Lora", serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: -0.4px;
+            line-height: 24px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+        }
+
+        .btn:hover {
+            background-color: var(--red-wine);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+            .guide-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 0 40px;
+            }
+
+            .toc-sidebar {
+                position: static;
+            }
+
+            .freelance-header {
+                padding: 16px 40px;
+            }
+
+            .freelance-hero {
+                padding: 100px 40px 60px;
+            }
+
+            .guide-content {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .freelance-hero h1 {
+                font-size: 46px;
+                line-height: 54px;
+            }
+
+            .freelance-hero .subtitle {
+                font-size: 18px;
+                line-height: 28px;
+            }
+
+            .freelance-logo {
+                height: 88px;
+            }
+
+            .freelance-header {
+                padding: 16px 20px;
+            }
+
+            .freelance-header .header-container {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .freelance-hero {
+                padding: 80px 20px 40px;
+            }
+
+            .guide-layout {
+                padding: 0 20px;
+                margin: 40px 0;
+            }
+
+            .guide-content {
+                padding: 32px 24px;
+            }
+
+            .guide-section h2 {
+                font-size: 46px;
+                line-height: 54px;
+            }
+
+            .guide-section h3 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            .freelance-footer {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mini-site Header -->
+    <header class="freelance-header">
+        <div class="header-container">
+            <a href="../index.html">
+                <img src="../images/kw-design-logo.svg" alt="Kat Walker Design" class="freelance-logo">
+            </a>
+            <a href="../index.html" class="back-to-main">
+                <i class="fas fa-arrow-left"></i> Back to Main Site
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="freelance-hero">
+        <div class="freelance-hero-container">
+            <h1>Freelance Client Guide</h1>
+            <p class="subtitle">Everything you need to know to get started working with me</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section>
+        <div class="guide-layout">
+            <!-- Table of Contents Sidebar -->
+            <aside class="toc-sidebar">
+                <h3 class="toc-title">Contents</h3>
+                <ul class="toc-list">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#services">Services I Offer</a></li>
+                    <li><a href="#process">The Design Process</a></li>
+                    <li><a href="#requirements">Requirements</a></li>
+                    <li><a href="#software">Software I Use</a></li>
+                    <li><a href="#managing">Managing Your Project</a></li>
+                    <li><a href="#invoicing">Invoicing & Rates</a></li>
+                    <li><a href="#project-brief">Submitting a Project Brief</a></li>
+                    <li><a href="#ad-hoc">Making Ad-Hoc Requests</a></li>
+                    <li><a href="#get-started">Ready to Get Started?</a></li>
+                </ul>
+            </aside>
+
+            <!-- Guide Content -->
+            <div class="guide-content">
+                <!-- About Me -->
+                <section id="about" class="guide-section">
+                    <h2>About Me</h2>
+                    <p><em>My background, professional experience, and how to get in touch</em></p>
+                    
+                    <p><i class="fas fa-globe"></i> <strong>Based in Mountain View, CA</strong></p>
+                    
+                    <p>I'm a versatile designer with experience across graphic design, front-end web coding, UI/UX, and motion graphics. My approach combines creative problem-solving with technical expertise to deliver polished, effective solutions.</p>
+                    
+                    <p>I work with clients ranging from startups to established businesses, helping them with everything from brand identity to complete digital products.</p>
+                    
+                    <div class="info-box">
+                        <h4><i class="fas fa-address-card"></i> Contact & Portfolio</h4>
+                        <p><strong>Portfolio:</strong> <a href="https://katwalker.design" target="_blank">katwalker.design</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:katwalker@gmail.com">katwalker@gmail.com</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kathleencwalker/" target="_blank">linkedin.com/in/kathleencwalker</a></p>
+                    </div>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Services I Offer -->
+                <section id="services" class="guide-section">
+                    <h2>Services I Offer</h2>
+                    <p><em>What I can do for my clients</em></p>
+                    
+                    <h3>Creative Design Services</h3>
+                    <ul>
+                        <li>Graphic design for digital & print</li>
+                        <li>Logo design and brand identity</li>
+                        <li>Brand guidelines and style guides</li>
+                        <li>UI/UX and interactive design</li>
+                        <li>Motion graphics and CSS animation</li>
+                        <li>Large format print design (ex. billboards, vehicle wraps)</li>
+                    </ul>
+                    
+                    <h3>Business Design Services</h3>
+                    <ul>
+                        <li>One pagers and sales sheets</li>
+                        <li>Pitches and presentations</li>
+                        <li>Infographics and data visualization</li>
+                        <li>Reports and publications</li>
+                    </ul>
+                    
+                    <h3>Development Services</h3>
+                    <ul>
+                        <li>HTML email design and coding</li>
+                        <li>Responsive webpage design</li>
+                        <li>HTML/CSS coding</li>
+                    </ul>
+                    
+                    <h3>Systems & Strategy</h3>
+                    <ul>
+                        <li>Design systems and UI component libraries</li>
+                        <li>Asset organization and documentation</li>
+                        <li>User testing, test planning, and analysis</li>
+                    </ul>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- The Design Process -->
+                <section id="process" class="guide-section">
+                    <h2>The Design Process</h2>
+                    <p><em>What's actually involved in a project from beginning to end</em></p>
+                    
+                    <p>Design projects involve multiple stages to ensure quality results. Here's what typically goes into one:</p>
+                    
+                    <h3>Research & Exploration</h3>
+                    <p>Understanding your audience, competitors, and industry standards. This helps inform design decisions.</p>
+                    
+                    <h3>Ideation</h3>
+                    <p>Brainstorming concepts and exploring different visual directions before settling on an approach.</p>
+                    
+                    <h3>Multiple Design Options</h3>
+                    <p>For applicable projects, I'll provide several design directions for you to choose from.</p>
+                    
+                    <h3>Revisions</h3>
+                    <p>Refinements based on your feedback to polish the final design.</p>
+                    
+                    <h3>User Testing</h3>
+                    <p>For interactive projects, testing ensures functionality and usability before launch.</p>
+                    
+                    <h3>Process Flows & Documentation</h3>
+                    <p>For complex projects, documentation helps your team understand how systems work and how to maintain them.</p>
+                    
+                    <h3>Final Handoff</h3>
+                    <p>Preparing, exporting, and organizing all files in formats you need.</p>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Requirements -->
+                <section id="requirements" class="guide-section">
+                    <h2>Requirements</h2>
+                    <p><em>What I need from you to get started</em></p>
+                    
+                    <p>Requirements are what I need from a client before I can begin working on their project. They include things like information, content, or files.</p>
+                    
+                    <p>A good rule of thumb to determine your project's requirements is to think about everything it would need to have to be considered complete. For example, I can build a website for you, but it wouldn't be ready to launch without your company logo.</p>
+                    
+                    <p>The more information you provide up front, the more efficiently I can work and the better your results will be. Requirements can vary based on the type of project or what you want out of it, but they often include things like:</p>
+                    
+                    <ul>
+                        <li>Marketing assets (logo files, brand guidelines, photography, approved graphics)</li>
+                        <li>Finalized, proofread copy in a document format</li>
+                        <li>Technical specifications (dimensions, file formats, color requirements)</li>
+                        <li>Access to relevant accounts, platforms, or systems</li>
+                        <li>Brand guidelines or style preferences</li>
+                    </ul>
+                    
+                    <p>Don't stress—if we're missing something essential that prevents me from being able to move forward with your project, I'll make sure to communicate with you.</p>
+
+                    <p><strong>If you require a Non-Disclosure Agreement (NDA)</strong>, please provide a copy of the agreement before we begin work.</p>
+                    
+                    <div class="info-box" style="background-color: var(--peach); border-left-color: var(--vintage-gold);">
+                        <h4 style="color: var(--dark-burgundy);"><i class="fas fa-exclamation-triangle"></i> Important:</h4>
+                        <p>If you don't have all the necessary content available I'll need to recreate design assets, add placeholder content, or source temporary images. This may add more work hours or require additional revisions. Providing complete materials up front keeps your project on budget and on schedule!</p>
+                    </div>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Software I Use -->
+                <section id="software" class="guide-section">
+                    <h2>Software I Use</h2>
+                    <p><em>Tools I have available for design, coding, and collaboration</em></p>
+                    
+                    <h3>Design Tools</h3>
+                    <ul>
+                        <li>Adobe Creative Suite (Photoshop, Illustrator, InDesign)</li>
+                        <li>Figma, Sketch, Adobe XD</li>
+                        <li>FigJam, Miro (for collaborative brainstorming)</li>
+                    </ul>
+                    
+                    <h3>Motion Graphics</h3>
+                    <ul>
+                        <li>Adobe After Effects, Adobe Animate</li>
+                    </ul>
+                    
+                    <h3>Development Tools</h3>
+                    <ul>
+                        <li>Cursor, Claude (AI-assisted development)</li>
+                    </ul>
+                    
+                    <h3>Office & Productivity</h3>
+                    <ul>
+                        <li>Microsoft Office Suite</li>
+                        <li>Google Workspace</li>
+                        <li>Apple Productivity Suite (Keynote, Pages, Numbers)</li>
+                    </ul>
+                    
+                    <h3>Project Management & Communication</h3>
+                    <ul>
+                        <li>Trello, Jira</li>
+                        <li>Slack, Microsoft Teams, Zoom</li>
+                    </ul>
+                    
+                    <div class="info-box" style="background-color: var(--slate); border-left-color: var(--text-medium);">
+                        <h4 style="color: var(--text-medium);"><i class="fas fa-pen-ruler"></i> Need a Different Tool?</h4>
+                        <p>If your project requires software not listed above, you'll need to provide an account or license for me to use. I don't purchase new software on behalf of clients. I work on Apple computers, so PC-only software will require you to provide a work computer.</p>
+                    </div>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Managing Your Project -->
+                <section id="managing" class="guide-section">
+                    <h2>Managing Your Project</h2>
+                    <p><em>How to establish a workflow and communicate effectively</em></p>
+                    
+                    <h3>Staying Organized</h3>
+                    <p>I use my own internal system to manage projects, but I'm happy to adapt to your preferred workflow. Just let me know what tools and processes you use and provide any necessary account access.</p>
+                    
+                    <h3>Project Updates & Check-Ins</h3>
+                    <p>I will work with you to estimate a roadmap for your project that balances your business needs with a realistic timeframe. How often you'd like to receive updates on work in progress is up to you. I will send an update every time a design is ready for review, but you may also want to check in on a regular schedule (every Monday, twice a week, etc.) or after certain milestones.</p>
+                    
+                    <p>I will also reach out any time I have questions or run into blockers.</p>
+                    
+                    <p>For larger and more complex projects, I recommend scheduling a review/feedback meeting weekly or bi-weekly (particularly if outside stakeholders are involved) throughout the process.</p>
+
+                    
+                    <h3>Getting in Touch</h3>
+                    <p>Please schedule business calls at least 24 hours in advance and always include the time zone when proposing meeting times. You are welcome to communicate through email or text at any time and I will get back to you as soon as possible during regular working hours.</p>
+
+                    <h3>Availability</h3>
+                    <p>I am available for work Monday through Friday, 9am to 5pm Pacific Time. I am not available on weekends or holidays. I will communicate any scheduled vacation or travel time at least 2 weeks in advance. For any personal or family emergencies I will communicate as soon as possible. I will do my best to accomodate your project around any unexpected unavailability.</p>
+                    
+                    <h3>Coordinating Across Time Zones</h3>
+                    <p>I'm based in Mountain View, California. My working hours are in the Pacific Time Zone (PST).</p>
+                    <ul>
+                        <li><strong>If you're in Mountain Time:</strong> I'm 1 hour behind you</li>
+                        <li><strong> If you're in Central Time:</strong> I'm 2 hours behind you</li>
+                        <li><strong>If you're in Eastern Time:</strong> I'm 3 hours behind you</li>
+                    </ul>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Invoicing & Rates -->
+                <section id="invoicing" class="guide-section">
+                    <h2>Invoicing & Rates</h2>
+                    <p><em>How pricing works, time tracking, and ways to pay</em></p>
+                    
+                    <h3>Pricing</h3>
+                    <p>I charge an hourly rate that is determined based on the standard pay for a designer with my experience in your area, along with the complexity of the work. I create a personalized proposal for each client. Pricing is negotiable based on your budget and project requirements, but it may limit the amount of work I am able to do for you.</p>
+                    
+                    <h3>Flat Fees</h3>
+                    <p>If you prefer a flat fee for a specific project, contact me and we can discuss options.</p>
+                    
+                    <h3>Tracking & Transparency</h3>
+                    <p>I track hours using ClickUp. You'll receive detailed timesheets with each invoice showing exactly what was worked on.</p>
+                    
+                    <h3>Payment Terms</h3>
+                    <p>Payment arrangements will be established before work begins. Invoices are typically sent every 2 weeks for ongoing work or upon completion for a short-term project. A payment will be considered late if it is not made within 30 days after the invoice is sent. After 30 days, any in-progress work will be put on hold until payments are up to date.</p>
+                    
+                    <h3>Payment Methods</h3>
+                    <p>I use Wave for invoicing (accepts debit and credit cards). I also accept checks, bank transfers, and PayPal.</p>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Submitting a Project Brief -->
+                <section id="project-brief" class="guide-section">
+                    <h2>Submitting a Project Brief</h2>
+                    <p><em>For larger projects on a longer timeline</em></p>
+                    
+                    <p>Large projects like apps, websites, brand books, or marketing campaigns benefit from a creative brief. I'll provide a template for you to fill out and send back to me. Here's what we'll need to clarify:</p>
+                    
+                    <h3>Project Title & Description</h3>
+                    <p>A clear name and summary of what you're creating.</p>
+                    
+                    <h3>Business Objectives</h3>
+                    <p>What you want to achieve with this project (increase sales, improve brand awareness, streamline processes, etc.).</p>
+                    
+                    <h3>Target Audience</h3>
+                    <p>Who will use or see this? Demographics, behaviors, preferences, and pain points.</p>
+                    
+                    <h3>Messaging & Tone</h3>
+                    <p>How should the project communicate? Professional, friendly, playful, authoritative, etc.</p>
+                    
+                    <h3>Competitor References</h3>
+                    <p>Examples of competitor work or industry standards to reference.</p>
+                    
+                    <h3>Assets & Deliverables</h3>
+                    <p>List of what you need created (mockups, prototypes, final files, documentation, etc.).</p>
+                    
+                    <h3>Stakeholders</h3>
+                    <p>Who needs to approve work? Who should be included in communications?</p>
+                    
+                    <h3>Budget</h3>
+                    <p>Your budget range helps me propose realistic scope and timelines.</p>
+                    
+                    <h3>Timeline</h3>
+                    <p>Key milestones, deadlines, and launch dates.</p>
+                    
+                    <h3>Launch Plan</h3>
+                    <p>How will this go live? Distribution channels, platform requirements, rollout strategy.</p>
+                    
+                    <h3>Success Metrics</h3>
+                    <p>How will you measure if the project succeeded? (conversion rates, user engagement, brand recognition, etc.)</p>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Making Ad-Hoc Requests -->
+                <section id="ad-hoc" class="guide-section">
+                    <h2>Making Ad-Hoc Requests</h2>
+                    <p><em>For smaller deliverables with a faster turnaround time</em></p>
+                    
+                    <p>For small, individual design requests, filling out a full project brief isn't necessary. Just provide:</p>
+                    
+                    <ul>
+                        <li>Project requirements/instructions (see page 4 for more details)</li>
+                        <li>A list of all requested assets & deliverables</li>
+                        <li>Examples or references that inspire you (optional)</li>
+                        <li>Stakeholders to communicate with for design approval</li>
+                        <li>Timeline/due date</li>
+                    </ul>
+                    
+                    <div class="section-return-top">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                            <i class="fas fa-arrow-up"></i> Return to Top
+                        </button>
+                    </div>
+                </section>
+
+                <section id="get-started" class="guide-section">
+                    <h2>Ready to Get Started?</h2>
+                    <p><em>I look forward to working with you!</em></p>
+                    
+                    <p>This guide covers the essentials of how we'll collaborate. My goal is to make the process smooth and transparent so you get great results without surprises.</p>
+                    <p>Have any questions not covered here? Please don't hesitate to reach out. I'm here to help you figure out the best approach for your project.</p>
+                    
+                    <a href="mailto:katwalker@gmail.com" class="btn">Contact Me</a>
+                </section>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Simple Footer -->
+    <footer class="freelance-footer">
+        <div class="freelance-footer-container">
+            <p><a href="../index.html">← Back to My Portfolio</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-list a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('.guide-section');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

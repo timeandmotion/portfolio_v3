@@ -6,16 +6,13 @@ frontend:
         - echo "No build required for static HTML site"
     build:
       commands:
-        - echo "Skipping build"
+        - echo "Skipping build - deploying static files"
   artifacts:
-    # root of the repo where index.html and other html files live
+    # All files are in the root directory
     baseDirectory: /
     files:
       - '**/*'
   cache:
-    paths: []
-# Optional rewrite rule: if you want client-side routes to fallback to index.html
-redirects:
-  - source: '</^[^.]+$/>'
-    target: /index.html
-    status: 200
+    paths:
+      - node_modules/**/*
+      - .git/**/*
