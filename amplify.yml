@@ -6,13 +6,10 @@ frontend:
         - echo "No build required for static HTML site"
     build:
       commands:
-        - echo "Skipping build - deploying static files"
+        - echo "Skipping build"
   artifacts:
-    # All files are in the root directory
     baseDirectory: /
     files:
       - '**/*'
   cache:
-    paths:
-      - node_modules/**/*
-      - .git/**/*
+    paths: []
