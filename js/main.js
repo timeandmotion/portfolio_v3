@@ -171,6 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================================================
     // Testimonials Slider with Drag/Swipe
+    // NOTE: This slider does NOT auto-advance. It only moves when:
+    // - User drags/swipes the slider
+    // - User clicks on pagination dots
     // ==========================================================================
     
     const slider = document.querySelector('.testimonials-slider');
@@ -183,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTranslate = 0;
     let prevTranslate = 0;
     let animationID;
+    let lastWindowWidth = window.innerWidth;
     
     // Check if we're on desktop (2 cards visible)
     function isDesktop() {
@@ -348,23 +352,130 @@ document.addEventListener('DOMContentLoaded', () => {
         sliderWrapper.addEventListener('dragstart', (e) => e.preventDefault());
     }
     
-    // Handle window resize
+    // Handle window resize - only update if viewport width actually changed
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            currentSlide = 0; // Reset to first slide on resize
-            setCardWidths();
-            updateDots();
-            setPositionByIndex();
+            const newWidth = window.innerWidth;
+            // Only reset if viewport width actually changed significantly
+            // This prevents unnecessary resets that could cause unwanted movement
+            if (Math.abs(newWidth - lastWindowWidth) > 10) {
+                // Preserve current slide position instead of resetting to 0
+                // Only recalculate if we need to (viewport category changed)
+                const wasDesktop = lastWindowWidth >= 1024;
+                const isNowDesktop = newWidth >= 1024;
+                
+                if (wasDesktop !== isNowDesktop) {
+                    // Viewport category changed (desktop <-> mobile), reset to first slide
+                    currentSlide = 0;
+                }
+                // Otherwise, keep current slide position
+                
+                lastWindowWidth = newWidth;
+                setCardWidths();
+                updateDots();
+                setPositionByIndex();
+            }
         }, 250);
     });
     
     // Initialize slider
     if (slider && cards.length > 0) {
+        lastWindowWidth = window.innerWidth;
         setCardWidths();
         updateDots();
         updateSlider();
+    }
+    
+    // ==========================================================================
+    // Jump-to-Section Anchor Links - Handle Navigation
+    // ==========================================================================
+    
+    // Track if user has clicked an anchor link (to distinguish from page refresh)
+    let hasClickedAnchorLink = false;
+    
+    // Store the original state (page load without hash)
+    const originalState = { page: 'top', scrollY: 0 };
+    
+    // Initialize history state for the top of the page
+    if (history.replaceState && !window.location.hash) {
+        history.replaceState(originalState, '', window.location.pathname + window.location.search);
+    }
+    
+    // Handle anchor links in jump-to-section menus
+    const jumpToLinks = document.querySelectorAll('a[href^="#"]');
+    
+    jumpToLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle links that start with # (anchor links)
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    e.preventDefault();
+                    hasClickedAnchorLink = true;
+                    
+                    // Scroll to target with smooth behavior
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Use pushState to create a history entry
+                    // Store state indicating this is an anchor navigation
+                    if (history.pushState) {
+                        history.pushState({ anchorLink: true, targetId: targetId }, '', href);
+                    }
+                }
+            }
+        });
+    });
+    
+    // Handle back/forward navigation (only if user has clicked an anchor link)
+    window.addEventListener('popstate', function(e) {
+        // Only handle if user has actually clicked an anchor link
+        // This prevents interference with page refresh
+        if (hasClickedAnchorLink) {
+            // If we're going back to the original state (no hash), scroll to top
+            if (!window.location.hash) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                // Reset flag when back at top
+                hasClickedAnchorLink = false;
+            } else if (window.location.hash) {
+                // If there's still a hash, scroll to that section
+                const targetId = window.location.hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        }
+    });
+    
+    // Handle initial page load with hash - scroll to section
+    // This only runs on actual page load, not on refresh with our custom handling
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            // Small delay to ensure page is loaded
+            setTimeout(() => {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
     }
     
 });
