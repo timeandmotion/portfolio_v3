@@ -176,6 +176,16 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Desktop: Add backdrop filter blur and border to navigation */
+@media screen and (min-width: 1024px) {
+    .site-header {
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+}
+
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -1062,8 +1072,8 @@ body {
     
     /* Typography - Mobile Scaling */
     .large-headline {
-        font-size: 40px;
-        line-height: 48px;
+        font-size: 55px;
+        line-height: 60px;
     }
     
     .medium-header {
@@ -1417,7 +1427,7 @@ body {
 .about-me-grid {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 100px;
+    gap: 80px;
     align-items: start;
 }
 
@@ -1426,9 +1436,36 @@ body {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    position: sticky;
-    top: 120px;
     align-self: flex-start;
+    max-width: 100%;
+}
+
+/* Desktop: Make about-me-left span full width when not in grid */
+@media screen and (min-width: 1024px) {
+    .about-me-section .about-me-left {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* About Me Content Grid - Two Column Layout */
+.about-me-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: start;
+}
+
+.about-me-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-me-philosophy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 /* Open to Work Badge */
@@ -1460,11 +1497,8 @@ body {
 }
 
 .profile-image {
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 85%;
+    align-self: center;
 }
 
 /* Right Column - Story Items */
@@ -1489,6 +1523,14 @@ body {
 
 .story-item h3 {
     margin-bottom: 8px;
+}
+
+/* Story Items Grid */
+.story-items-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    margin-top: 80px;
 }
 
 /* Stuff I Love Section */
@@ -1634,7 +1676,7 @@ body {
     }
 
     .profile-image {
-        max-width: 200px;
+        max-width: 75%;
     }
 
     .about-me-right {
@@ -1643,6 +1685,17 @@ body {
 
     .story-item {
         gap: 16px;
+    }
+
+    .story-items-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        margin-top: 60px;
+    }
+
+    .about-me-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .stuff-i-love-section {
@@ -1693,7 +1746,7 @@ body {
     }
 
     .profile-image {
-        max-width: 250px;
+        max-width: 75%;
     }
 
     .about-me-left {
@@ -1706,6 +1759,11 @@ body {
 
     .about-me-right {
         gap: 50px;
+    }
+
+    .about-me-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .stuff-i-love-section,
@@ -2361,6 +2419,10 @@ body {
     margin-bottom: 0;
 }
 
+.blocker-cards-four {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 /* Reduce bottom padding when blocker cards are last in section */
 .case-study-section.has-blocker-cards {
     padding-bottom: 0;
@@ -2550,7 +2612,7 @@ body {
     .three-column-layout,
     .four-column-layout {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 16px;
     }
 
     .content-box {
@@ -2626,6 +2688,10 @@ body {
     .blocker-cards {
         grid-template-columns: 1fr !important;
         gap: 20px;
+    }
+
+    .blocker-cards-four {
+        grid-template-columns: 1fr !important;
     }
 
     .blocker-grid {
@@ -2757,6 +2823,10 @@ body {
     }
 
     .blocker-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blocker-cards-four {
         grid-template-columns: repeat(2, 1fr);
     }
 
