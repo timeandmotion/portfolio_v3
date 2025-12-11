@@ -1072,8 +1072,8 @@ body {
     
     /* Typography - Mobile Scaling */
     .large-headline {
-        font-size: 55px;
-        line-height: 60px;
+        font-size: 45px;
+        line-height: 50px;
     }
     
     .medium-header {
